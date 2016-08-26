@@ -1,5 +1,13 @@
 <div class="container">
 
+  <div class="row load-hotels">
+    <button class="btn btn-lg btn-primary">Load Hotels</button>
+  </div>
 
+  <div class="row hotels">
+    <div class="hotel" ng-repeat="hotel in main.hotels">
+      <img ng-src="{{hotel.images[0]}}" alt="">
+    </div>
+  </div>
 
 </div>
