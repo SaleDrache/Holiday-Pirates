@@ -11,6 +11,10 @@
 
     vm.hotels = '';
 
+    
+    // METHODS
+    vm.getStars = getStars;
+
 
     activate();
 
@@ -20,6 +24,10 @@
         .then(function(hotels){
           vm.hotels = hotels;
         });
+    }
+
+    function getStars(starsNumber) {
+      return new Array(starsNumber);
     }
 
   }

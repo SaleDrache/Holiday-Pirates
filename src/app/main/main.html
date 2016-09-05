@@ -5,8 +5,25 @@
   </div>
 
   <div class="row hotels">
-    <div class="hotel" ng-repeat="hotel in main.hotels">
-      <img ng-src="{{hotel.images[0]}}" alt="">
+    <div class="row hotel" ng-repeat="hotel in main.hotels">
+      <div class="col-xs-4 hotel__img-wrapper">
+        <img ng-src="{{hotel.images[0]}}" alt="hotel image">
+      </div>
+      <div class="col-xs-8 hotel__info">
+        <h3>{{hotel.name}} 
+          <span class="hotel__stars">
+            <span ng-repeat="i in main.getStars(hotel.stars) track by $index" class="-full">
+               <i class="fa fa-star" aria-hidden="true"></i>
+            </span>
+            <span ng-repeat="i in main.getStars(5 - hotel.stars) track by $index" class="-empty">
+              <i  class="fa fa-star" aria-hidden="true"></i>
+            </span>
+           
+            
+          </span>
+        </h3>
+        <p>{{hotel.country}} - {{hotel.city}}</p>
+      </div>
     </div>
   </div>
 

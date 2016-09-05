@@ -2,3 +2,30 @@
 	margin: 100px 0;
 	text-align: center;
 }
+
+.hotel {
+	margin: 20px 0;
+	border: 1px solid black;
+
+	&__img-wrapper {
+		padding: 0;
+	}
+
+	img {
+		max-height: 480px;
+		width: 100%;
+	}
+
+	&__stars {
+		float: right;
+		padding-right: 20px;
+
+		.-full {
+			color: @color-black;
+		}
+
+		.-empty {
+			color: @color-grey;
+		}
+	}
+}
