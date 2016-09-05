@@ -14,7 +14,7 @@
         <img ng-src="{{hotel.images[0]}}" alt="hotel image">
       </div>
       <div class="col-xs-8 hotel__info">
-        <h3>{{hotel.name}} 
+        <h3 class="hotel__name">{{hotel.name}} 
           <span class="hotel__stars">
             <span ng-repeat="i in main.getStars(hotel.stars) track by $index" class="-full">
                <i class="fa fa-star" aria-hidden="true"></i>
@@ -24,12 +24,12 @@
             </span>
           </span>
         </h3>
-        <p>{{hotel.country}} - {{hotel.city}}</p>
+        <p class="hotel__location">{{hotel.country}} - {{hotel.city}}</p>
         <p class="hotel__description">{{hotel.description}}</p>
         <div class="hotel__bottom-info">
           <button class="btn btn-lg btn-default" ng-click="">Show Reviews</button>
           <span class="hotel__price-and-date">
-            <span class="hotel__price">{{hotel.price}}€</span>
+            <span class="hotel__price">{{hotel.price}} €</span>
             <br>
             <span>{{hotel.date_start | date : 'dd.MM.yyyy'}} - {{hotel.date_end | date : 'dd.MM.yyyy'}}</span>
           </span>
