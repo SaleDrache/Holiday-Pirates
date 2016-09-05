@@ -10,7 +10,7 @@
 
   <div class="hotels row">
     <div class="hotel row" ng-repeat="hotel in main.hotels track by $index">
-    
+
       <div class="hotel__content row">
         <div class="col-xs-4 hotel__img-wrapper">
           <img ng-src="{{hotel.images[0]}}" alt="hotel image">
@@ -41,9 +41,17 @@
 
       <div class="hotel__reviews row">
         <div class="hotel__review" ng-repeat="review in hotel.reviews">
-          <p>{{review.positive}}</p>
-          <p>{{review.name}}</p>
-          <p>{{review.comment}}</p>
+
+          <div class="col-xs-1">
+            <span class="circle" ng-if="review.positive"><i class="fa fa-plus" aria-hidden="true"></i></span>
+            <span class="circle" ng-if="!review.positive"><i class="fa fa-minus" aria-hidden="true"></i></span>
+          </div>
+          <div class="col-xs-11">
+            <p><strong>{{review.name}}</strong></p>
+            <p>{{review.comment}}</p>
+          </div>
+<!--           <hr><hr> -->
+          
         </div>
       </div>
     </div>
