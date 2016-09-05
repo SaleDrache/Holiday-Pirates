@@ -1,7 +1,11 @@
 <div class="container">
 
   <div class="row load-hotels">
-    <button class="btn btn-lg btn-primary">Load Hotels</button>
+    <button class="btn btn-lg btn-primary" ng-click="main.loadHotels()">Load Hotels</button>
+  </div>
+
+  <div class="row hotels-error" ng-if="main.hotelsError">
+    <p>Unable to connect to the server. Please try again later.</p>
   </div>
 
   <div class="row hotels">

@@ -10,24 +10,35 @@
     var vm = this;
 
     vm.hotels = '';
+    vm.hotelsError = false;
 
     
     // METHODS
     vm.getStars = getStars;
+    vm.loadHotels = loadHotels;
 
 
     activate();
 
     function activate() {
-      HotelApi
-        .getHotels()
-        .then(function(hotels){
-          vm.hotels = hotels;
-        });
+
     }
 
     function getStars(starsNumber) {
       return new Array(starsNumber);
+    }
+
+    function loadHotels() {
+      HotelApi
+        .getHotels()
+        .then(function(hotels){
+          vm.hotelsError = false;
+          vm.hotels = hotels;
+        })
+        .catch(function(){
+          vm.hotelsError = true;
+          vm.hotels = '';
+        });
     }
 
   }
