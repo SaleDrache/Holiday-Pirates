@@ -12,6 +12,7 @@
 .hotel {
 	margin: 20px 0;
 	border: 1px solid black;
+	border-radius: 12px;
 
 	&__img-wrapper {
 		padding: 0;
@@ -20,11 +21,16 @@
 	img {
 		max-height: 480px;
 		width: 100%;
+		border-bottom-left-radius: 12px;
+		border-top-left-radius: 12px;
+	}
+
+	&__info {
+		padding: 15px 30px 15px 20px
 	}
 
 	&__stars {
 		float: right;
-		padding-right: 20px;
 
 		.-full {
 			color: @color-black;
@@ -33,5 +39,18 @@
 		.-empty {
 			color: @color-grey;
 		}
+	}
+
+	&__bottom-info {
+		padding: 30px 0;
+	}
+
+	&__price-and-date {
+		float: right;
+		text-align: right;
+	}
+
+	&__price {
+		font-size: 2rem;
 	}
 }
