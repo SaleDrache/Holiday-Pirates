@@ -11,11 +11,13 @@
 
     vm.hotels = '';
     vm.hotelsError = false;
+    vm.reviewsError = [];
 
     
     // METHODS
     vm.getStars = getStars;
     vm.loadHotels = loadHotels;
+    vm.getReviews = getReviews;
 
 
     activate();
@@ -39,6 +41,21 @@
           vm.hotelsError = true;
           vm.hotels = '';
         });
+    }
+
+    function getReviews(hotelId, index) {
+      if (!vm.hotels[index].reviews) {
+        HotelApi
+          .getReviews(hotelId)
+          .then(function(reviews){
+            vm.reviewsError[index] = false;
+            vm.hotels[index].reviews = reviews;
+          })
+          .catch(function(){
+            vm.reviewsError[index] = true;
+          });
+
+      }
     }
 
   }

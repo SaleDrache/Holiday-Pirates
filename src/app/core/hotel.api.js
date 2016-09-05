@@ -9,7 +9,8 @@
   function HotelApi($http) {
 
     return {
-      getHotels: getHotels
+      getHotels:    getHotels,
+      getReviews:   getReviews
     }
 
     function getHotels() {
@@ -17,6 +18,22 @@
 
       var params = {
         count: 5
+      };
+
+      return $http
+        .get(url, {
+            params: params
+          })        
+        .then(function(response){
+          return response.data;
+        });
+    }
+
+    function getReviews(id) {
+      var url = 'http://fake-hotel-api.herokuapp.com/api/reviews';
+
+      var params = {
+        hotel_id: id
       };
 
       return $http
