@@ -11,9 +11,7 @@
 
     vm.hotels = '';
     vm.hotelsError = false;
-    vm.reviewsError = [];
     vm.hotelsLoading = false;
-    vm.reviewsLoading = [];
 
     
     // METHODS
@@ -52,19 +50,15 @@
 
     function getReviews(hotelId, index) {
       if (!vm.hotels[index].reviews) {
-         vm.reviewsLoading[index] = true;
+        vm.hotels[index].reviewsLoading = true;
 
         HotelApi
           .getReviews(hotelId)
           .then(function(reviews){
-            vm.reviewsError[index] = false;
             vm.hotels[index].reviews = reviews;
           })
-          .catch(function(){
-            vm.reviewsError[index] = true;
-          })
           .finally(function(){
-            vm.reviewsLoading[index] = false;
+            vm.hotels[index].reviewsLoading = false;
           });
 
       }

@@ -8,16 +8,20 @@
     <p>Unable to connect to the server. Please try again later.</p>
   </div>
 
-  <div class="hotels row">
 
+  <!-- ******** HOTELS **********-->
+  <div class="hotels row">
     <div ng-if="main.hotelsLoading" class="cssload-container"><div class="cssload-zenith"></div></div>
     <div ng-if="!main.hotelsLoading" class="hotel row" ng-repeat="hotel in main.hotels track by $index">
-
       <div class="hotel__content row">
+
+        <!-- ******** HOTEL IMG **********-->
         <div class="col-xs-4 hotel__img-wrapper">
           <div ng-if="!hotel.photoLoaded" class="cssload-container"><div class="cssload-zenith"></div></div>
           <img ng-show="hotel.photoLoaded" ng-src="{{hotel.images[0]}}" alt="hotel image" imageloaded="hotel.photoLoaded = true;">
         </div>
+
+        <!-- ******** HOTEL INFO **********-->
         <div class="col-xs-8 hotel__info">
           <h3 class="hotel__name">{{hotel.name}} 
             <span class="hotel__stars">
@@ -45,9 +49,11 @@
         </div>
       </div>
 
-      <div ng-if="main.reviewsLoading[$index]" class="cssload-container"><div class="cssload-zenith"></div></div>
 
-      <div ng-if="!main.reviewsLoading[$index] && hotel.showReviews" class="hotel__reviews row">
+      <!-- ******** HOTEL REVIEWS **********-->
+      <div ng-if="hotel.reviewsLoading" class="cssload-container"><div class="cssload-zenith"></div></div>
+
+      <div ng-if="!hotel.reviewsLoading && hotel.showReviews" class="hotel__reviews row">
         <div class="hotel__review" ng-repeat="review in hotel.reviews">
           <div class="col-xs-1">
             <span class="circle" ng-if="review.positive"><i class="fa fa-plus" aria-hidden="true"></i></span>
