@@ -29,7 +29,10 @@
           <p class="hotel__location">{{hotel.country}} - {{hotel.city}}</p>
           <p class="hotel__description">{{hotel.description}}</p>
           <div class="hotel__bottom-info">
-            <button class="btn btn-lg btn-default" ng-click="main.getReviews(hotel.id, $index)">Show Reviews</button>
+            <button class="btn btn-lg btn-default" ng-click="main.getReviews(hotel.id, $index); hotel.showReviews = !hotel.showReviews">
+              <span ng-if="!hotel.showReviews">Show Reviews</span>
+              <span ng-if="hotel.showReviews">Hide Reviews</span>
+            </button>
             <span class="hotel__price-and-date">
               <span class="hotel__price">{{hotel.price}} €</span>
               <br>
@@ -40,7 +43,7 @@
       </div>
 
       <div class="hotel__reviews row">
-        <div class="hotel__review" ng-repeat="review in hotel.reviews">
+        <div class="hotel__review" ng-repeat="review in hotel.reviews" ng-if="hotel.showReviews">
 
           <div class="col-xs-1">
             <span class="circle" ng-if="review.positive"><i class="fa fa-plus" aria-hidden="true"></i></span>
