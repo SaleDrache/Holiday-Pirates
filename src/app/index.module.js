@@ -26,7 +26,8 @@
       // Features //
       //////////////
 
-      'holidaypirates.main'
+      'holidaypirates.main',
+      'holidaypirates.imageloaded'
 
      ]);
 

@@ -15,7 +15,8 @@
 
       <div class="hotel__content row">
         <div class="col-xs-4 hotel__img-wrapper">
-          <img ng-src="{{hotel.images[0]}}" alt="hotel image">
+          <div ng-if="!hotel.photoLoaded" class="cssload-container"><div class="cssload-zenith"></div></div>
+          <img ng-show="hotel.photoLoaded" ng-src="{{hotel.images[0]}}" alt="hotel image" imageloaded="hotel.photoLoaded = true;">
         </div>
         <div class="col-xs-8 hotel__info">
           <h3 class="hotel__name">{{hotel.name}} 
